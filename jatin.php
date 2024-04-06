@@ -1,11 +1,10 @@
 <?php
-// Database connection parameters
-$host = 'jatindatabase.cdame0iw4fi8.us-east-1.rds.amazonaws.com';
-$username = 'admin';
-$password = 'jatinsql';
-$database = 'college_registration';
-
 // Establish database connection
+$host = "localhost";
+$username = "admin";
+$password = "jatinrds";
+$database = "student_details";
+
 $connection = new mysqli($host, $username, $password, $database);
 
 // Check connection
@@ -16,20 +15,29 @@ if ($connection->connect_error) {
 // Check if the form was submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Sanitize input to prevent SQL injection
-    $name = mysqli_real_escape_string($connection, $_POST['name']);
-    $email = mysqli_real_escape_string($connection, $_POST['email']);
-    $phone = mysqli_real_escape_string($connection, $_POST['phone']);
-    $major = mysqli_real_escape_string($connection, $_POST['major']);
-
-    // SQL query to insert data into students table
-    $sql = "INSERT INTO students (name, email, phone, major) VALUES ('$name', '$email', '$phone', '$major')";
-
-    // Execute query
-    if ($connection->query($sql) === TRUE) {
-        echo "Registration successful!";
-    } else {
-        echo "Error: " . $sql . "<br>" . $connection->error;
+    $roll_number = mysqli_real_escape_string($db, $_POST['roll_number']);
+	$full_name = mysqli_real_escape_string($db, $_POST['full_name']);
+	$email = mysqli_real_escape_string($db, $_POST['email']);
+	$mobileno = mysqli_real_escape_string($db, $_POST['mobileno']);
+	
+   
+    // Check if all required fields are filled
+    if(empty($name) || empty($email) || empty($phone) || empty($major)) {
+        echo "All fields are required.";
+        exit;
     }
+
+    $query = "INSERT INTO student_details(roll_number,full_name,email,mobileno) 
+					  VALUES('$roll_number','$full_name','$email','$mobileno')";
+			$row=mysqli_query($db,$query);
+			if ($row) {
+				header('location: thank.php');
+				# code...
+			}
+			else
+			{
+				echo "Invalid Details";
+			}
 }
 
 // Close connection
