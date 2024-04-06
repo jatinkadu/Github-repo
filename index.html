@@ -3,26 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration Form</title>
+    <title>Student Registration Form</title>
 </head>
 <body>
-    <h2>Registration Form</h2>
+    <h2>Student Registration Form</h2>
     <form action="jatin.php" method="post">
+        <label for="sid">Student ID:</label><br>
+        <input type="text" id="sid" name="sid" required><br>
 
-        <label for="name">Student ID:</label>
-        <input type="text" name="student_id" required><br>
+        <label for="roll_number">roll_number:</label><br>
+        <input type="email" id="roll_number" name="roll_number" required><br>
 
-        <label for="name">Name:</label>
-        <input type="text" name="name" required><br>
+        <label for="full_name">Full Name:</label><br>
+        <input type="tel" id="full_name" name="full_name" required><br>
 
-        <label for="email">Email:</label>
-        <input type="email" name="email" required><br>
+        <label for="email">Email:</label><br>
+        <input type="text" id="email" name="email" required><br>
 
-        <label for="phone">Phone:</label>
-        <input type="tel" name="phone" required><br>
-
-        <label for="major">Major:</label>
-        <input type="text" name="major" required><br>
+        <label for="mobileno">Mobile Number:</label><br>
+        <input type="text" id="mobileno" name="mobileno" required><br>
 
         <input type="submit" value="Submit">
     </form>
