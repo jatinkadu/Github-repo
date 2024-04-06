@@ -15,7 +15,7 @@ if ($connection->connect_error) {
 // Check if the form was submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Sanitize input to prevent SQL injection
-    $roll_number = mysqli_real_escape_string($db, $_POST['roll_number']);
+        $roll_number = mysqli_real_escape_string($db, $_POST['roll_number']);
 	$full_name = mysqli_real_escape_string($db, $_POST['full_name']);
 	$email = mysqli_real_escape_string($db, $_POST['email']);
 	$mobileno = mysqli_real_escape_string($db, $_POST['mobileno']);
