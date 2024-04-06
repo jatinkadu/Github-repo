@@ -1,4 +1,4 @@
-<?php include('jatin.php') ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +8,7 @@
 </head>
 <body>
     <h2>Student Registration Form</h2>
-    <form  method="post">
+    <form action="jatin.php" method="post">
 
         <label for="roll_number">roll_number:</label><br>
         <input type="text" id="roll_number" name="roll_number" required><br>
