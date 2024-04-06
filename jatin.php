@@ -29,15 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $query = "INSERT INTO student_details(roll_number,full_name,email,mobileno) 
 					  VALUES('$roll_number','$full_name','$email','$mobileno')";
-			$row=mysqli_query($db,$query);
-			if ($row) {
-				header('location: thank.php');
-				# code...
-			}
-			else
-			{
-				echo "Invalid Details";
-			}
+			
 }
 
 // Close connection
